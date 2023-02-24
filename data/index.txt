@@ -1,0 +1,3 @@
+bread	|	13.8	|	12
+chocolate	|	28.5	|	5
+potato	|	8	|	5.5
