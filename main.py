@@ -26,3 +26,14 @@ lst = [
 
 # ---------------------------------------------------------------
 
+try:
+    5 / 0
+    print('success')
+except ValueError:
+    print("Value error")
+except ZeroDivisionError:
+    print("Zerro division")
+else:
+    print("else")
+finally:
+    print("finally")
