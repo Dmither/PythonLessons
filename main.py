@@ -1,3 +1,16 @@
-import cowsay
+import webbrowser
 
-cowsay.fox("Lorem ipsum dolor sit amet, consectetur adipiscin gelit. Mauris blandit rhoncus nibh. Mauris mi mauris, molestie vel metus sit amet, aliquam vulputate nibh.")
+
+def validatior(func):
+    def wrapper(args):
+        print("before")
+        func(args)
+        print("after")
+    return wrapper
+
+@validatior
+def open_url(url):
+    webbrowser.open(url)
+
+
+open_url("http://google.com")
