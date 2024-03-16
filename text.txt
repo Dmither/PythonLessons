@@ -1,0 +1,3 @@
+Some text in first line.
+Second line text.
+Information third line.
