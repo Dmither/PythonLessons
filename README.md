@@ -390,6 +390,29 @@ for elem in numbers:
   print(elem)
 ```
 
+### Генератори
+
+Генератори - ф-ї, які повертають ітератори для створення послідовності значень під час повторення  
+Використовують ключове слово `yield` замість `return`, яке створює значення і призупиняє виконання
+
+```py
+def PowTwoGen(max=0):
+    n = 0
+    while n < max:
+        yield 2 ** n
+        n += 1
+generator = PowTwoGen(3)
+print(next(generator))
+for elem in PowTwoGen(3):
+  print(elem)
+```
+
+Вираз генератора - стислий спосіб створити генераторний об'єкт `(expression for item in iterable)`,  
+expression - значення, яке повертатиметься для кожного елемента iterable  
+```py
+squares_generator = (i * i for i in range(3))
+print(next(squares_generator))
+```
 
 ### Декоратори
 
