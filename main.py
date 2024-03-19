@@ -1,15 +1,17 @@
-def PowTwoGen(max=0):
-    n = 0
-    while n < max:
-        yield 2 ** n
-        n += 1
+def counter():
+  count = 0
+  def increase():
+    nonlocal count
+    count += 1
+    return count
+  return increase
 
-generator = PowTwoGen(3)
-print(next(generator))
-print(next(generator))
-print(next(generator))
+counter1 = counter()
+print(counter1())
+print(counter1())
+print(counter1())
 
-squares_generator = (i * i for i in range(3))
-print(next(squares_generator))
-print(next(squares_generator))
-print(next(squares_generator))
+counter2 = counter()
+print(counter2())
+print(counter2())
+print(counter2())

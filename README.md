@@ -414,6 +414,25 @@ squares_generator = (i * i for i in range(3))
 print(next(squares_generator))
 ```
 
+### Замикання (closures)
+
+Замикання - явище, за якого вкладена функція має доступ до змінних зовнішньої, навіть після закриття  
+Може бути використане для забезпечення простого приховування даних та уникання глобальних значень
+
+```py
+def counter():
+  count = 0
+  def increase():
+    nonlocal count
+    count += 1
+    return count
+  return increase
+counter1 = counter()
+print(counter1())
+counter2 = counter()
+print(counter2())
+```
+
 ### Декоратори
 
 Дозволяють додавати шаблонний функціонал до або після функції
