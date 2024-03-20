@@ -1,17 +1,21 @@
-def counter():
-  count = 0
-  def increase():
-    nonlocal count
-    count += 1
-    return count
-  return increase
+def decor(func):
+  def inner(*args):
+    print("-" * 15)
+    func(*args)
+    print("-" * 15)
+  return inner
 
-counter1 = counter()
-print(counter1())
-print(counter1())
-print(counter1())
+def ordinary():
+  print("I'm ordinary")
 
-counter2 = counter()
-print(counter2())
-print(counter2())
-print(counter2())
+ordinary()
+
+decorated = decor(ordinary)
+decorated()
+decor(ordinary)()
+
+@decor
+def congrats(name):
+  print("Hello,", name)
+
+congrats("Sam")
