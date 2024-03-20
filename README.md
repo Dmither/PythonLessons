@@ -264,7 +264,8 @@ Python - об'єктно-орієнтована мова програмуван�
 **Екземпляр (об'єкт)**  
 Створення об'єкта: `name1 = ClassName(args[])`  
 Зміна властивості об'єкта: `name1.param = value`  
-Видалення властивості: `del name1.param`; об'єкта: `del name1`
+Видалення властивості: `del name1.param`; об'єкта: `del name1`  
+Має вбудований словниковий атрибут `__dict__` з перерахованими властивостями
 
 **Спадкування**  
 Класи-спадкоємці успадковують всі поля, методи та конструктори  
@@ -467,4 +468,36 @@ decor(ordinary)() # short
 def congrats(name):
   print("Hello,", name)
 congrats("Sam")
+```
+
+### Декоратор @property
+
+вбудований декоратор, значно полегшує використання геттерів і сеттерів
+Синтаксис: `property(fget=None, fset=None, fdel=None, doc=None)`  
+Може бути розбитий: `field = field.getter(get_field)`, `field = field.setter(set_field)`  
+Може бути замінений декоратором (нижній приклад, рекомендовано)
+
+```py
+class MyObj:
+  def __init__(self, field):
+    self.field = field
+  def get_field(self):
+    return self._field
+  def set_field(self, value):
+    # some actions
+    self._field = value
+  field = property(get_field, set_field)
+```
+
+```py
+class MyObj:
+  def __init__(self, field):
+    self.field = field
+  @property       # getter
+  def field(self):
+    return self._field
+  @field.setter   # setter
+  def field(self, value):
+    # some actions
+    self._field = value
 ```
