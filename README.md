@@ -380,7 +380,7 @@ str = String; True = true; False = false; None = null
 `pip freeze > requirements.txt` - cтворення/оновлення requirements.txt  
 `pip install -r requirements.txt` - встановлення пакетів з requirements.txt
 
-**pipenv**
+**pipenv**  
 `pip install pipenv` - встановити модуль pipenv  
 `pipenv shell` - створити віртуальне середовище, якщо воно не існує (для поточного проекта)  
 Для роботи з віртуальним середовища його необхідно вибрати як інтерпретатор (може вимагати перезагрузку)  
